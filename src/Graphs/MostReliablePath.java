@@ -22,7 +22,7 @@ public class MostReliablePath {
 
         @Override
         public int compare(Integer o1, Integer o2) {
-            return (int) Math.round(reliabilities[o2] * 100 - reliabilities[o1] * 100);
+            return Double.compare(reliabilities[o2], reliabilities[o1]);
         }
     }
     public static void main(String[] args) {
