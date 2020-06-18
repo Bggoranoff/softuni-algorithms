@@ -54,9 +54,12 @@ public class Knapsack {
 
         for (int i = 0; i < items.size(); i++) {
             int rowIndex = i + 1;
-            Item item = items.get(rowIndex);
+            Item item = items.get(i);
             for (int capacity = 0; capacity <= maxCapacity; capacity++) {
-                if (item.getWeight() > capacity) continue;
+                if (item.getWeight() > capacity) {
+                    prices[rowIndex][capacity] = prices[rowIndex - 1][capacity];
+                    continue;
+                }
                 int excluding = prices[rowIndex - 1][capacity];
                 int including = item.getPrice() + prices[rowIndex - 1][capacity - item.getWeight()];
                 if (including > excluding) {

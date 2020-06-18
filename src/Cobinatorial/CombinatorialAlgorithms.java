@@ -4,7 +4,7 @@ import java.util.*;
 
 public class CombinatorialAlgorithms {
     public static void main(String[] args) {
-
+        combinations(new int[5], 0, 0, 3, new int[3]);
     }
     static void permutation(int[] elements, int index, boolean[] used, int[] perm) {
         if(index >= elements.length) print(perm);
